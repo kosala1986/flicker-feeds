@@ -1,0 +1,21 @@
+<div class="feed-wrapper">
+  <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap.xs="0">
+    <div class="main-title-container" fxFlex="100%">
+      <label>
+        Flickr feed viewer and search
+      </label>
+    </div>
+  </div>
+  <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap.xs="0">
+    <div class="feed-container">
+      <div class="search-container">
+        <search-box (getSearchString)="getFeeds($event)"></search-box>
+      </div>
+      <div class="image-container">
+        <div *ngFor="let feed of feedList ; let i=index" class="feed">
+          <img src="{{feed.imageUrl}}" height="{{feed.imageHeight}}" width="{{feed.imageWidth}}"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

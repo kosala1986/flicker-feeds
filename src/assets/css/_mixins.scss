@@ -1,0 +1,9 @@
+@mixin flex-init($direction: row, $position: center) {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $position
+}

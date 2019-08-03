@@ -1,0 +1,33 @@
+@import 'mixins';
+.search-box-wrapper {
+    @include flex-init(row, center);
+    font-size: 16px;
+    line-height: 1.5em;
+
+    .search-box-container,
+    .button-container {
+        padding: 10px;
+    }
+
+    .search-box-container {
+        input {
+            min-width: 300px;
+            min-height: 40px;
+            padding: 0px 2px 0px 2px;
+        }
+    }
+
+    .button-container {
+        button {
+            min-height: 40px;
+            min-width: 80px;
+        }
+    }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .search-box-wrapper {
+        @include flex-init(column, center);
+    }
+}
+    
