@@ -3,9 +3,7 @@ const app = require('../app');
 const debug = require('debug')('angular-node-express-api:server');
 const http = require('http');
 
-
-var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+var port = Number(process.env.PORT || 3000);
 
 /**
  * Create HTTP server.

@@ -2,8 +2,11 @@ const FeedParser = require('feedparser');
 const request = require('request');
 var flickerEndPoint = 'https://api.flickr.com/services/feeds/photos_public.gne';
 
+/**
+ * Parse Flicker feeds
+ */
 
-var getFlickerFeeds = function (searchString, callback) {
+var getFlickerFeeds = (searchString, callback) => {
     var url = '';
     if (searchString !== '') {
         url = flickerEndPoint + '?tags=' + searchString;
@@ -14,8 +17,9 @@ var getFlickerFeeds = function (searchString, callback) {
     let photoList = [];
     let feedparser = new FeedParser();
 
-    feedReq.on('error', function (error) {
+    feedReq.on('error', (error) => {
         // handle any request errors
+        throw new Error("Unexpected Error thrown " + error);
     });
     feedReq.on('response', function (res) {
         var stream = this;
@@ -23,12 +27,12 @@ var getFlickerFeeds = function (searchString, callback) {
         stream.pipe(feedparser);
     });
 
-    feedparser.on('error', function (error) {
-        console.error("Unexpected Error thrown " + error);
+    feedparser.on('error', (error) => {
+        throw new Error("Unexpected Error thrown " + error);
     });
     feedparser.on('readable', function () {
         var stream = this, item;
-
+        // Iterate through feeds and make readable array of objects
         while (item = stream.read()) {
             let imageRex = /<img[^>]+src="?([^"\s]+)"?[^>]*\/>/g;
             let heightRex = /<img[^>]+height="?([^"\s]+)"?[^>]*\/>/g;
@@ -55,7 +59,7 @@ var getFlickerFeeds = function (searchString, callback) {
         }
     });
 
-    feedparser.on('end', function () {
+    feedparser.on('end', () => {
         callback(photoList);
     });
 }
