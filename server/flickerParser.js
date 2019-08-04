@@ -2,9 +2,9 @@ const FeedParser = require('feedparser');
 const request = require('request');
 var flickerEndPoint = 'https://api.flickr.com/services/feeds/photos_public.gne';
 
-/**
- * Parse Flicker feeds
- */
+/*
+Parse Flicker feeds
+*/
 
 var getFlickerFeeds = (searchString, callback) => {
     var url = '';

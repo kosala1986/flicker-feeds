@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 const flickerParser = require('../flickerParser');
 
-/* GET users listing. */
+/*
+GET users listing.
+*/
 router.get('/', (req, res, next) => {
   searchString = (req.query && req.query.searchString) ? req.query.searchString : '';
   flickerParser.getFlickerFeeds(searchString, (data) => {
@@ -10,7 +12,9 @@ router.get('/', (req, res, next) => {
   });
 });
 
-/* GET users listing. */
+/*
+POST users listing.
+*/
 router.post('/', (req, res, next) => {
   searchString = (req.body && req.body.searchString) ? req.body.searchString : '';
   flickerParser.getFlickerFeeds(searchString, (data) => {

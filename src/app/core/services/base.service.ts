@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
-
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +12,11 @@ export class BaseService {
 
   constructor(private http: HttpClient) { }
 
-  // GET method
+  /*
+  GET method
+  */
   get(): Observable<any> {
-    let header = this.createHeader();
+    const header = this.createHeader();
     return this.http.get<any>(`${environment.endPointURL}`, { headers: header })
       .pipe(
         retry(0),
@@ -26,9 +27,12 @@ export class BaseService {
       );
   }
 
-  // POST method
+  /*
+  POST mrthod
+  */
+
   post(body: object): Observable<any> {
-    let header = this.createHeader();
+    const header = this.createHeader();
     return this.http.post<any>(`${environment.endPointURL}`, body, { headers: header })
       .pipe(
         retry(0),
@@ -38,14 +42,18 @@ export class BaseService {
         catchError(this.handleError)
       );
   }
-  // Create header
+
+  /*
+  * Create header
+  */
+
   createHeader(): HttpHeaders {
-    let header = new HttpHeaders().set('Accept', 'application/json');
+    const header = new HttpHeaders().set('Accept', 'application/json');
     return header;
   }
 
   handleError(error) {
-    let errorMessage: string = '';
+    let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
       errorMessage = `Error: ${error.message}`;
     } else {
