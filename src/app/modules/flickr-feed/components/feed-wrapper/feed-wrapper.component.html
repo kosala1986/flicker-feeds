@@ -9,7 +9,7 @@
   <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap.xs="0">
     <div class="feed-container">
       <div class="search-container">
-        <search-box (getSearchString)="getFeeds($event)"></search-box>
+        <app-search-box (getSearchString)="getFeeds($event)"></app-search-box>
       </div>
       <div class="image-container">
         <div *ngFor="let feed of feedList ; let i=index" class="feed">

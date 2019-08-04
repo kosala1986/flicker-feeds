@@ -1,40 +1,38 @@
 @import 'mixins';
 .feed-wrapper {
-    .main-title-container {
-        text-align: center;
-        padding: 10px 0px;
-        font-size: 34px;
-        line-height: 1.5em;
-        font-weight: 600;
-    }
-
-    .feed-container {
-        @include flex-init(column, center);
-        width: 100%;
-        .search-container {
-            @include flex-init(column, center);
-        }
-        .image-container {
-            @include flex-init(row, center);
-            flex-wrap: wrap;
-            align-items: flex-start;
-            padding: 10px 0px 0px 0px;
-
-           .feed {
-            margin: 2px;
-            flex:1;
-           }
-        }
-    }
+	.main-title-container {
+		text-align: center;
+		padding: 10px 0px;
+		font-size: 34px;
+		line-height: 1.5em;
+		font-weight: 600;
+	}
+	.feed-container {
+		@include flex-init(column, center);
+		width: 100%;
+		.search-container {
+			@include flex-init(column, center);
+		}
+		.image-container {
+			@include flex-init(row, center);
+			flex-wrap: wrap;
+			align-items: flex-start;
+			padding: 10px 0px 0px 0px;
+			.feed {
+				margin: 2px;
+				flex: 1;
+			}
+		}
+	}
 }
 
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-    .feed-wrapper {
-        .main-title-container {
-            text-align: center;
-            padding: 10px 0px;
-            font-size: 24px;
-            margin-top: 30px;
-        }
-    }
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+	.feed-wrapper {
+		.main-title-container {
+			text-align: center;
+			padding: 10px 0px;
+			font-size: 24px;
+			margin-top: 30px;
+		}
+	}
 }

@@ -8,17 +8,22 @@ import { BaseService } from '../../../../core/services/base.service';
 })
 export class FeedWrapperComponent implements OnInit {
 
-  feedList: Array<Object> = [];
+  feedList: Array<object> = [];
   constructor(private baseService: BaseService) { }
 
+  /*
+  get public feeds When initialise the component.
+  */
   ngOnInit() {
     this.getFeeds({});
   }
 
+  /*
+  Click event handler for search button to get feeds.
+  */
   getFeeds(event: object): void {
     this.baseService.post(event).subscribe(feedList => {
       this.feedList = feedList;
-      console.log(this.feedList);
     });
   }
 
