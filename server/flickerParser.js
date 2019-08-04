@@ -8,6 +8,7 @@ var flickerEndPoint = 'https://api.flickr.com/services/feeds/photos_public.gne';
 
 var getFlickerFeeds = (searchString, callback) => {
     var url = '';
+    //Search feeds with tags or without tags
     if (searchString !== '') {
         url = flickerEndPoint + '?tags=' + searchString;
     } else {
@@ -26,7 +27,6 @@ var getFlickerFeeds = (searchString, callback) => {
         if (res.statusCode != 200) return this.emit('error', new Error('Bad status code'));
         stream.pipe(feedparser);
     });
-
     feedparser.on('error', (error) => {
         throw new Error("Unexpected Error thrown " + error);
     });
