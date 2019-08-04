@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseService } from '../../../../core/services/base.service';
+import { Feed } from '../../models/feed';
 
 @Component({
   selector: 'app-feed-wrapper',
@@ -8,7 +9,7 @@ import { BaseService } from '../../../../core/services/base.service';
 })
 export class FeedWrapperComponent implements OnInit {
 
-  feedList: Array<object> = [];
+  feedList: Array<Feed> = [];
   constructor(private baseService: BaseService) { }
 
   /*
