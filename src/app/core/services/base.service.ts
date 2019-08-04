@@ -28,7 +28,7 @@ export class BaseService {
   }
 
   /*
-  POST mrthod
+  POST method
   */
 
   post(body: object): Observable<any> {
