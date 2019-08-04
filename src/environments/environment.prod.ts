@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  endPointURL: 'http://localhost:3000/api/v1/feeds'
+  endPointURL: 'http://ec2-54-169-99-77.ap-southeast-1.compute.amazonaws.com:3000/api/feeds'
 };

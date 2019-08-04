@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  endPointURL: 'http://localhost:3000/api/v1/feeds'
+  endPointURL: 'http://localhost:3000/api/feeds'
 };
 
 /*
