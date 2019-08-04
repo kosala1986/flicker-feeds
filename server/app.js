@@ -5,6 +5,7 @@ const feeds = require('./routes/feeds');
 
 const app = express();
 app.use((req, res, next) => {
+  //Setting necessary headers to response data
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
